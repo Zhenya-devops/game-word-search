@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Api</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+<div class="bg-ex-color">Lorem Ipsum</div>
+{% for name, percentage in results_guess.items() %}
+    <p>{{ name }} :  {{ percentage }}</p>
+{% endfor %}
+</body>
+</html>

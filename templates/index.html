@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link href='https://fonts.googleapis.com/css?family=Hanalei Fill' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/uikit.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <script src="{{ url_for('static', filename='js/uikit.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/uikit-icons.min.js') }}"></script>
+</head>
+<body>
+<div class="header">
+    <h1>WORDPLAY</h1>
+    <p>It's service for fany...</p>
+
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+
+            <div class="uk-navbar-item">
+                <form class="uk-search uk-search-navbar" action="/" method="post">
+                    <span uk-search-icon></span>
+                    <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search" name="text_words" required>
+                </form>
+            </div>
+
+        </div>
+    </nav>
+</div>
+<div class="main">
+    <h2>Ваше слово: {{ phrase }}</h2>
+    <table class="uk-table">
+        <thead>
+            <tr>
+                <th>Результат</th>
+                <th>Процент соответствия</th>
+                <th>Увеличить вероятность</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for name, percentage in results_guess.items() %}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ percentage }}</td>
+                    <td><button class="uk-button uk-button-primary">Добавить</button></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<footer>
+    <h2>WORDPLAY</h2>
+</footer>
+</body>
+</html>
